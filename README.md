@@ -1,59 +1,51 @@
-# AngularStarter
+# Angular Starter 🚀
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.5.
+A starter project based on **Angular 20 Zoneless**, **Tailwind CSS**, and **DaisyUI**.
 
-## Development server
+## Key Features
 
-To start a local development server, run:
+* **Angular 20 Zoneless**: leverages the zoneless approach to improve performance and reduce overhead.
+* **Tailwind CSS**: a utility-first CSS framework for fast and highly customizable styling.
+* **DaisyUI**: ready-to-use UI components built on top of Tailwind, ensuring modern and accessible interfaces.
+* **Modular structure**: a scalable base organized for easy extension of features and components.
 
-```bash
-ng serve
-```
+## Installation
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Clone the repository and install dependencies:
 
 ```bash
-ng generate component component-name
+git clone https://github.com/your-username/angular-starter.git
+cd angular-starter
+npm install
+# or
+yarn install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Available Scripts
 
-```bash
-ng generate --help
+| Command         | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `npm run dev`   | Starts the development server at `http://localhost:4200` |
+| `npm run build` | Builds the app for production into `dist/`               |
+| `npm test`      | Runs unit tests                                          |
+
+> ⚙️ You can replace `npm` with `yarn` if preferred.
+
+## Project Structure
+
+```text
+angular-starter/
+├── src/
+│   ├── app/
+|   |  ├── layout/        # Base layout UI components
+│   │  ├── features/      # Features 
+│   │  └── app.ts
+│   ├── assets/            # Static assets
+│   ├── styles.css         # Tailwind directives
+│   └── main.ts            # Zoneless bootstrap
+├── angular.json
+├── package.json
+└── README.md
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[Alessandro Umek ©](https://alessandroumek.it)
