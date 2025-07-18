@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Layout } from "./layout/layout";
+import { MenuItem } from './layout/header/header';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,6 @@ import { Layout } from "./layout/layout";
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'angular-starter';
+  protected title = 'Angular Starter';
+  protected menuItems: MenuItem[] = [];
 }
