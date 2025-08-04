@@ -1,0 +1,32 @@
+<table class="table table-zebra w-full rounded-box border border-base-content/5" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (cat of categories; track cat.id) {
+      <tr>
+        <td>
+          @if (editingId !== cat.id) {
+            {{ cat.name }}
+          } @else {
+            <form [formGroup]="getForm(cat.id, cat.name)">
+              <input formControlName="name" class="input input-sm input-bordered w-full" />
+            </form>
+          }
+        </td>
+        <td class="text-right space-x-2">
+          @if (editingId !== cat.id) {
+            <button class="btn btn-sm btn-info" (click)="edit.emit(cat.id)">Edit</button>
+            <button class="btn btn-sm btn-error" (click)="delete.emit(cat.id)">Delete</button>
+          } @else {
+            <button class="btn btn-sm btn-success" (click)="onSave(cat.id)">Save</button>
+            <button class="btn btn-sm" (click)="cancel.emit()">Cancel</button>
+          }
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

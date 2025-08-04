@@ -1,0 +1,16 @@
+<div class="p-6 max-w-2xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">Category Management</h2>
+
+  <!-- Add Form -->
+  <app-category-form (submitName)="addCategory($event)" />
+
+  <!-- List -->
+  <app-category-list
+    [categories]="categories()"
+    [editingId]="editingId()"
+    (edit)="startEdit($event)"
+    (cancel)="cancelEdit()"
+    (delete)="deleteCategory($event)"
+    (saveEdit)="saveEdit($event.id, $event.name)"
+  />
+</div>

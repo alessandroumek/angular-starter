@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal, WritableSignal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Layout } from "./layout/layout";
 import { MenuItem } from './layout/header/header';
@@ -14,14 +14,17 @@ import { SupabaseService } from './core/supabase.service';
 })
 export class App {
   protected title = 'Angular Starter';
-  protected menuItems: MenuItem[] = [];
+  protected menuItems: MenuItem[] = [
+    { text: 'Home', link: [''] },
+    { text : 'Category', link: ['/category']}
+  ];
 
   private supabaseService: SupabaseService = inject(SupabaseService);
 
-  user = computed(()=> this.supabaseService.user()); 
+  user = computed(()=> this.supabaseService.user());
   loading = computed(() => this.supabaseService.loading());
 
-  async signIn($event: { email: string; password: string; }){  
+  async signIn($event: { email: string; password: string; }){
     await this.supabaseService.signIn($event.email, $event.password)
   }
 
