@@ -7,11 +7,9 @@
     </div>
     <div id="menu" class="flex flex-row-reverse sm:flex-row">
         @for (item of menuItems; track $index) {
-            <a [routerLink]="item.link" routerLinkActive="router-link-active" ]="item.link" class="btn btn-ghost btn-sm rounded-btn">{{item.text}}</a>
+            <a [routerLink]="item.link" routerLinkActive="router-link-active" class="btn btn-ghost btn-sm rounded-btn">{{item.text}}</a>
         }
-    </div>
-    <div>
-      <button (click)="signOut.emit()" class="btn btn-ghost btn-sm rounded-btn">Logout</button>
+        <button (click)="signOut.emit()" class="btn btn-ghost btn-sm rounded-btn">Logout</button>
     </div>
   </div>
 </header>
