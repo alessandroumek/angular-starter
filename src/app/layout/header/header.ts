@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,6 +10,8 @@ import { RouterLink } from '@angular/router';
 export class Header {
   @Input() title: string = '';
   @Input() menuItems: MenuItem[] = [];
+
+  @Output() signOut = new EventEmitter<void>();
 }
 
 export type MenuItem = {

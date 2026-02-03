@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Footer } from './footer/footer';
 import { Header, MenuItem } from './header/header';
 
@@ -11,4 +11,6 @@ import { Header, MenuItem } from './header/header';
 export class Layout {
   @Input() title: string = '';
   @Input() menuItems: MenuItem[] = [];
+
+  @Output() signOut = new EventEmitter<void>();
 }
