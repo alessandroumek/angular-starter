@@ -1,8 +1,9 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, computed, inject, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Layout } from "./layout/layout";
 import { MenuItem } from './layout/header/header';
 import { Authenticate } from './authenticate/authenticate';
+import { SupabaseService } from './core/supabase.service';
 
 @Component({
   selector: 'app-root',
@@ -15,24 +16,16 @@ export class App {
   protected title = 'Angular Starter';
   protected menuItems: MenuItem[] = [];
 
-  // Implemented base login code just for test ui
-  // change user() signIn() signOut() to interact with your backend  
-  private _user : WritableSignal<null | { name: string }> = signal(null);
+  private supabaseService: SupabaseService = inject(SupabaseService);
 
-  get user() {
-    return this._user;
-  }
+  user = computed(()=> this.supabaseService.user()); 
+  loading = computed(() => this.supabaseService.loading());
 
-  loading = signal(false);
-
-  signIn($event: { email: string; password: string; }){
-    console.log('signIn', $event)
-    this._user.set({
-      name: $event.email
-    })
+  async signIn($event: { email: string; password: string; }){  
+    await this.supabaseService.signIn($event.email, $event.password)
   }
 
   signOut(){
-    this._user.set(null);
+    this.supabaseService.signOut();
   }
 }

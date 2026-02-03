@@ -1,8 +1,16 @@
-@if(user() != null){
+@if(user() && !loading()) {
   <app-layout [title]="title" [menuItems]="menuItems" (signOut)="signOut()">
   <router-outlet></router-outlet>
 </app-layout>
 }
 @else {
-<app-authenticate [loading]="loading" (submitted)="signIn($event)" />
+  <app-authenticate [loading]="loading()" (submitted)="signIn($event)" [class.hidden]="loading()"/>
 }
+
+@if (loading()) {
+  <div class="flex justify-center align-middle h-screen w-full">
+    <span class="loading loading-spinner loading-xl text-primary"></span>
+  </div>
+}
+
+

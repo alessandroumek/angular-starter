@@ -8,7 +8,7 @@ import { FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angula
   styles: ``
 })
 export class Authenticate {
-  readonly loading = input(signal(false));
+  readonly loading = input();
   @Output() submitted = new EventEmitter<{email:string, password: string}>();
 
   private formBuilder: FormBuilder = inject(FormBuilder);
